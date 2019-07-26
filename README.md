@@ -1,3 +1,11 @@
-just import the sql file with the same name 
+online shopping website that have the following: 
+user -------
+USER LOGIN
+HOME PAGE
+ADD TO CART
+CREDIT CARD PAYMENT
 
-give me a feedback thanks 
+admin -------
+ADMIN LOGIN
+ADD PRODUCTS
+SETTINGS
