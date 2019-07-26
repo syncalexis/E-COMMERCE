@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <title>OOTD ON WHEELS	</title>
+
+      <!-- Bootstrap core CSS -->
+      <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="plugins/font-awesome/css/font-awesome.min.css">
+      <!-- Custom styles for this template -->
+      <link href="public/css/index.css" rel="stylesheet">
+
+   </head>
+
+  <body>
+
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+<div class = "container-fluid">
+         <div class="navbar-header">
+<!--             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button> -->
+            <a class="navbar-brand" href="index.html"> OOTD ON WHEELS</a>
+         </div>
+         <!-- <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+               <li class="active"><a href="#">Home</a></li>
+               <li><a href="#about">About</a></li>
+               <li><a href="#contact">Contact</a></li>
+            </ul>
+         </div> --><!--/.nav-collapse -->
+
+         <ul class="nav navbar-nav navbar-right">
+
+          <li class="dropdown navbar-user">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+
+              <i class="fa fa-shopping-cart" style="font-size:2.5em" aria-hidden="true"></i> <span class="badge badge-notify hidden" id="cartcounter" >7</span> <b class="caret hidden" ></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInLeft hidden" id="tranMenu">
+              <li class="arrow"></li>
+              <li><a href="checkout.html" id="myCart">My Cart</a></li>
+              <li><a href="myorder.html" id="myOrder">My Orders</a></li>
+              <li><a href="javascript:;" id="logout">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+    <br>
+    <div id="cartdetails">
+        <div class="row">
+          <div class="col-md-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading"> Your Shopping Cart </div>
+
+                <div class="panel-body">
+                  <table class="table table-bordered table-striped" id="cartTable">
+                    <thead>
+                      <tr>
+                        <th>Product Name</th>
+                        <th>Description</th>
+                        <th>Order Qty</th>
+                        <th>Price </th>
+                        <th>Total Price </th>
+                        <th>Action </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    </table>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-primary pull-right" id="checkoutnow"> Checkout Now </button>
+          </div>
+        </div>
+    </div>
+
+    <div id="paymentdetails" class="hidden">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-primary">
+                <div class="panel-heading"> Payment Details </div>
+
+                <div class="panel-body">
+                  <form id="frmPayNow" method="POST">
+
+                  <div class="row">
+                    <div  class="col-md-9">
+                      <label>Card Number: </label>
+                            <input 
+                               type="text" 
+                               name="cardnumber" 
+                               id="cardnumber" 
+                               class="form-control" 
+                               data-validation="required"
+                               data-validation-error-msg="Card Number is Required">
+                    </div>
+                    <div  class="col-md-3">
+                      <label>Security Code: </label>
+                            <input 
+                               type="text" 
+                               name="securitycode" 
+                               id="securitycode" 
+                               class="form-control">
+                      </div>
+                    </div>
+
+
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label>Name on Card: </label>
+                            <input 
+                               type="text" 
+                               name="nameoncard" 
+                               id="nameoncard" 
+                               class="form-control" 
+                               data-validation="required"
+                               data-validation-error-msg="Name on Card is Required">
+                    </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label>Expiration</label>
+                      <select class="form-control" id="expirationmonth" name="expirationmonth" data-validation="required" data-validation-error-msg="Month is Required">
+                        <option value=""> choose one </option>
+                        <option value="1"> 01 - January </option>
+                        <option value="2"> 02 - February </option>
+                        <option value="3"> 03 - March </option>
+                        <option value="4"> 04 - April </option>
+                        <option value="5"> 05 - May </option>
+                        <option value="6"> 06 - June </option>
+                        <option value="7"> 07 - July </option>
+                        <option value="8"> 08 - August </option>
+                        <option value="9"> 09 - September </option>
+                        <option value="10"> 10 - October </option>
+                        <option value="11"> 11 - November </option>
+                        <option value="12"> 12 - December </option>
+                      </select>
+                    </div>
+
+                    <div class="col-md-3">
+                      <label>&nbsp;</label>
+                      <select class="form-control" id="expirationyear" name="expirationyear" data-validation="required" data-validation-error-msg="Month is Required">
+                        
+                        <option value=""> choose one</option>
+                        <option value="2017">2017</option>
+						<option value="2017">2018</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <input type="hidden" name="action" value="savePayment">
+                      <button type="button" class="btn btn-primary pull-right" id="backtocart" style="margin-left:10px"> Back </button>
+                      <button class="btn btn-primary pull-right"> Pay Now </button>
+                    </div>
+                  </div>
+                  </form>
+
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="plugins/jquery/js/jquery-1.9.1.min.js"></script>
+
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugins/form-validator/js/jquery.form-validator.min.js"></script>
+    <script src="public/js/checkout.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        Checkout.init();
+      });
+    </script>
+  </body>
+</html>

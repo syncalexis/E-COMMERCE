@@ -1,0 +1,260 @@
+		<div class="panel panel-primary">
+			<div class="panel-heading"> Product Master List <i class="fa fa-plus-square pull-right" id="addProduct" style="font-size:1.5em"> </i> </div>
+
+			<div class="panel-body">
+				<table class="table table-bordered table-striped" id="productTable">
+					<thead>
+					  <tr>
+						<th>Product Code</th>
+						<th>Product Name</th>
+						<th>Description</th>
+						<th>Price</th>
+						<th>Stocks </th>
+						<th>Images </th>
+						<th>Action </th>
+						<th>edit</th>
+						<th>delete</th>
+					  </tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				  </table>
+			</div>
+		</div>
+
+	<!-- Modal -->
+	<div id="addProductModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title"> Add Product</h4>
+			</div>
+			
+			<div class="modal-body">
+				<form id="frmAddProduct" method="POST">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="productAlert"></div>
+						</div>
+					</div>
+					<div class="row">
+					   <div class="col-md-12">
+						  <label>Category: </label>
+						  <select name="categoriesid" id="categoriesid" class="form-control" data-validation="required" data-validation-error-msg="Category is Required">
+						  </select>
+					   </div>
+					</div>
+
+					<br>
+					<div class="row">
+					   <div class="col-md-4">
+						  <label>Product Name: </label>
+						  <input 
+							 type="text" 
+							 name="prodname" 
+							 id="prodname" 
+							 class="form-control" 
+							 data-validation="required" 
+							 data-validation-error-msg="Product Name is Required">
+					   </div>
+					   <div class="col-md-8">
+						  <label>Description: </label>
+						  <input 
+							 type="text" 
+							 name="proddesc" 
+							 id="proddesc" 
+							 class="form-control" 
+							 data-validation="required" 
+							 data-validation-error-msg="Description is Required">
+					   </div>
+
+					</div>
+
+					<br>
+
+					<div class="row">
+					   <div class="col-md-6">
+						  <label>Price: </label>
+						  <input 
+							 type="number" 
+							 name="price"
+							 step="0.01" 
+							 id="price" 
+							 class="form-control" 
+							 data-validation="required" 
+							 data-validation-error-msg="Price is Required">
+					   </div>
+					   <div class="col-md-6">
+						  <label>Stocks: </label>
+						  <input 
+							 type="number"
+							 min="0"
+							 step="1" 
+							 name="stocks" 
+							 id="stocks" 
+							 class="form-control">
+					   </div>
+
+					</div>
+
+					<br>
+
+					<div class="row">
+					   <input type="hidden" name="action" value="saveProducts">
+
+					   <div class="col-md-6">
+						  <button type="submit" class="btn btn-primary"> Add </button>
+					   </div>
+
+					</div>
+				</form>
+			</div>
+			
+			<!-- <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div> -->
+		</div>
+		</div>
+	</div>
+
+
+		<!-- Modal -->
+	<div id="uploadImageModal" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
+		    <!-- Modal content-->
+		    <div class="modal-content">
+		     	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		        	<h4 class="modal-title" id="uploadpictureheader"></h4>
+		      	</div>
+		      	
+		      	<div class="modal-body">
+		      		<div id="uploadPicturelert"></div>
+		      		<form id="frmUploadPicture" method="POST" enctype="multipart/form-data">
+
+		      			<div class="row">
+                           <div class="col-md-12">
+                              <label>Select Image: </label>
+                              <input 
+                                 type="file" 
+                                 name="fileToUpload" 
+                                 id="fileToUpload" 
+                                 class="form-control" 
+                                 data-validation="required mime"  data-validation-allowing="jpg, png, gif"  data-validation-error-msg-mime="You can only upload images" data-validation-error-msg="Image Required">
+                           </div>
+                        </div>
+                        <br>
+                     	<div class="row">
+                           <input type="hidden" name="action" value="isUploadImage">
+                           <input type="hidden" name="productid" id="productid" value="">
+						   
+						
+
+                           <div class="col-md-6">
+                              <button type="subn=mit" class="btn btn-primary"> Upload </button>
+                           </div>
+
+                        </div>
+                  </form>
+               </div>
+			  <!-- Modal -->
+	<div id="editProductModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" id="editModalheader"> </h4>
+			</div>
+			
+			<div class="modal-body">
+				<form id="frmEditProduct" method="POST">
+					<div class="row">
+						<div class="col-md-12">
+							<div id="productAlert"></div>
+						</div>
+					</div>
+
+					<br>
+					<div class="row">
+					   <div class="col-md-4">
+						  <label>Product Name: </label>
+						  <input 
+							 type="text" 
+							 name="prodname" 
+							 id="prodname" 
+							 class="form-control" 
+							 data-validation="required" 
+							 data-validation-error-msg="Product Name is Required">
+					   </div>
+					   <div class="col-md-8">
+						  <label>Description: </label>
+						  <input 
+							 type="text" 
+							 name="proddesc" 
+							 id="proddesc" 
+							 class="form-control" 
+							 data-validation="required" 
+							 data-validation-error-msg="Description is Required">
+					   </div>
+
+					</div>
+
+					<br>
+
+					<div class="row">
+					   <div class="col-md-6">
+						  <label>Price: </label>
+						  <input 
+							 type="number" 
+							 name="price"
+							 step="0.01" 
+							 id="price" 
+							 class="form-control" 
+							 data-validation="required" 
+							 data-validation-error-msg="Price is Required">
+					   </div>
+					   <div class="col-md-6">
+						  <label>Stocks: </label>
+						  <input 
+							 type="number"
+							 min="0"
+							 step="1" 
+							 name="stocks" 
+							 id="stocks" 
+							 class="form-control">
+					   </div>
+
+					</div>
+
+					<br>
+
+					<div class="row">
+					   <input type="hidden" name="action" value="saveProducts">
+
+					   <div class="col-md-6">
+						  <button type="submit" class="btn btn-primary"> Add </button>
+					   </div>
+
+					</div>
+				</form>
+			</div>
+			
+			<!-- <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div> -->
+		</div>
+		</div>
+	</div>
+			
+								
+
+	<script src="public/js/products.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			Products.init();
+		});
+	</script>

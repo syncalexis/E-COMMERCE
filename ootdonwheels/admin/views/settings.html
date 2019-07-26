@@ -1,0 +1,108 @@
+<ul class="nav nav-tabs" >
+	<li class="active"><a data-toggle="tab" href="#categories"> Categories </a></li>
+	<!-- <li><a data-toggle="tab" href="#categories2"> Categories </a></li> -->
+</ul>
+
+<div class="tab-content">
+	<div id="categories" class="tab-pane fade in active">
+		<div class="row">
+		    <div class="col-md-12" style="padding: 1em">
+		    	<div class="panel panel-primary">
+					<div class="panel-heading"> &nbsp; <i class="fa fa-plus-square pull-right" id="addCategory" style="font-size:1.5em"> </i> </div>
+
+					<div class="panel-body">
+						<table class="table table-bordered table-striped" id="categoryTable">
+						    <thead>
+						      <tr>
+						        <th>Category Code</th>
+						        <th>Description</th>
+						        
+						      </tr>
+						    </thead>
+						    <tbody>
+						      
+						    </tbody>
+						</table>
+					</div>
+				</div>
+		    </div>
+		</div>
+	</div>
+
+	<!-- <div id="categories2" class="tab-pane fade in">
+		<div class="row">
+		    <div class="col-md-12">
+		    	test2
+		    </div>
+		</div>
+	</div> -->
+</div>
+
+
+<!-- Modal -->
+<div id="addCategoryModal" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-sm">
+    <!-- Modal content-->
+    <div class="modal-content">
+     	<div class="modal-header">
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	<h4 class="modal-title"> Add Category</h4>
+      	</div>
+      	
+      	<div class="modal-body">
+      		<form id="frmAddCategory" method="POST">
+      			<div class="row">
+      				<div class="col-md-12">
+      					<div id="categoryAlert"></div>
+      				</div>
+      			</div>
+      			<div class="row">
+	               <div class="col-md-12">
+	                  <label>Category Code: </label>
+	                  <input 
+	                     type="text" 
+	                     name="categorycode" 
+	                     id="categorycode" 
+	                     class="form-control" 
+	                     data-validation="required"
+	                     style="text-transform:uppercase" 
+	                     data-validation-error-msg="Category Code is Required">
+	               </div>
+	            </div>
+
+	            <br>
+
+	            <div class="row">
+	               <div class="col-md-12">
+	                  <label>Description: </label>
+	                  <input 
+	                     type="text" 
+	                     name="categorydesc" 
+	                     id="categorydesc" 
+	                     class="form-control" 
+	                     data-validation="required" 
+	                     data-validation-error-msg="Description is Required">
+	               </div>
+	            </div>
+	            <br>
+
+	            <div class="row">
+                   <input type="hidden" name="action" value="saveCategories">
+
+                   <div class="col-md-6">
+                      <button type="submit" class="btn btn-primary"> Add </button>
+                   </div>
+
+                </div>
+      		</form>
+       	</div>
+    </div>
+	</div>
+</div>
+
+<script src="public/js/settings.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		Settings.init();
+  	});
+</script>
